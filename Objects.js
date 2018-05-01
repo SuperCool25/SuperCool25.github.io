@@ -36,17 +36,17 @@ function background(src, speed) {
     this.xA = 0;
     this.yA = this.imageA.height - 1000;
     this.xB = this.xA;
-    this.yB = -375;
+    this.yB = -360;
     this.speed = speed;
 
     this.update = function () {
         this.yA += this.speed;
         this.yB += this.speed;
         //this.yB = this.yA + this.imageA.height;
-        if (this.yB > 500) {
+        if (this.yB > 550) {
             this.yB = -973;
         }
-        if (this.yA > 500) {
+        if (this.yA > 550) {
             this.yA = -973;
         }
     };
@@ -68,7 +68,7 @@ function trashCan(x ,y) {
     this.update = function(speed) {
         this.y += speed;
         this.box.setBounds(this.x, this.y, this.image.width, this.image.height,this);
-        if (this.y > 500) {
+        if (this.y > 550) {
             this.y = this.start + 200;
         }
     };
@@ -112,7 +112,7 @@ function Wall(x, y) {
         this.box.setBounds(this.x, this.y, 116, 143);
         this.box1.setBounds(this.x + 380, this.y, 122, 143);
         this.y += speed;
-        console.log(this.y);
+      
         if (this.y > 600) {
             this.y = this.start+100;
         }

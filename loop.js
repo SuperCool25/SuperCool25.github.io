@@ -11,6 +11,11 @@ var keys = [];
 var colliders = [];
 var trashCans = [];
 
+var Left = false;
+var Right = false;
+var Up = false;
+var Down = false;
+
 var dead = false;
 
 var car = new Car("res/car.png", 250 - 71 / 2,380);
@@ -26,22 +31,48 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function (e) {
     keys[e.keyCode] = false;
 });
+function left() {
+    Left = true;
+}
+function right() {
+    Right = true;
+}
+function up() {
+    Up = true;
+}
+function down() {
+    Down = true;
+}
 
+function leftn() {
+    Left = false;
+}
+function rightn() {
+    Right = false;
+}
+function upn() {
+    Up = false;
+    console.log(Up);
+}
+function downn() {
+    Down = false;
+}
 function pollEvents() {
-  if (keys[68]) {//d
+  if (keys[68] || Right) {//d
         car.x += speed/5 + .5;
     }
-    if (keys[65]) {//a
+    if (keys[65] || Left) {//a
         car.x -= speed/5 + .5;
     }
-    if (keys[83]) {//w
+    if (keys[83] || Up) {//w
         //cary += 5;
         speed -= 1.5;
     }
-    if (keys[87]) {//s
+    if (keys[87] || Down) {//s
         //cary -= 5;
         speed += 1;
     }
+  
 }
 function loop() {
     ctx.fillStyle = "green";
@@ -65,6 +96,7 @@ function loop() {
         speed = 0;
     }
     pollEvents();
+ 
     if (speed < 0) {
        // speed = 0;
     }
