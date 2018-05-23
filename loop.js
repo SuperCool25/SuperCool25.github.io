@@ -77,7 +77,7 @@ function loop() {
     ctx.fillStyle = "green";
     ctx.fillRect(0, 0, 500, 700);
 
-    on = document.getElementById("mobile").checked;
+   // on = document.getElementById("mobile").checked;
     
     if (car.x < 74) {
         speed -= 1.2;
